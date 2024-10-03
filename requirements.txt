@@ -1,0 +1,9 @@
+numpy 
+pandas 
+matplotlib.pyplot 
+seaborn
+altair
+squarify
+Axes3D
+StringIO
+Streamlit
