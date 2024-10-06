@@ -224,8 +224,8 @@ Insights from Data Visualization and Analysis per member:
 *   
 *   
 3. ### `Jaso`
-*   
-*  
+*  Indication permits that the data is skewed to the right, which suggests a higher concentration of higher entropy values in the distribution. This implies that most URLs have a higher level of complexity or randomness.
+*  The analysis of the Boolean features within the dataset reveals that three key figures predominantly represent the primary features.
 4. ### `Molina`
 *   Most of the transactions made are by smartphones contributing to **29.9%** of the data set. Other product types such as Smartwatch, Laptop, Tablet, Headphones contribute **20.5%**, **19.9%**, **19.7%**, and **10.1%** respectively  
 *   **Smartphones** has the highest number of completed and cancelled transactions while **Headphones** has the lowest number of transactions in product types
