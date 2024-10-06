@@ -86,8 +86,37 @@ st.markdown("""
          """)
 st.markdown("#### `Line chart`")
 # Code here
+st.write("Ratio of product type bought per gender")
+df[['Gender', 'Product Type']].head(20)
+st.write("Gender and product type ratio line chart")
+def Gender_ProductType_Ratio ():
+ gender_stats = df['Gender'].head(20)
+ productType_stats = df['Product Type'].head(20)
+
+ plt.plot(productType_stats, gender_stats, marker = 'o', linestyle = '-', color = 'b')
+ plt.title('Gender to Product type bought ratio (20 Transactions)')
+ plt.xlabel('Product Type')
+ plt.ylabel('Gender')
+ plt.xticks(rotation=45)
+ plt.grid(True)
+ plt.show()
+
+Gender_ProductType_Ratio ()
 st.markdown("#### `Histogram`")
 # Code here
+
+st.write("Payment methods count")
+df['Payment Method']
+st.write("Payment method histogram")
+def PaymentMethod_histogram():
+  Payment_method = df['Payment Method']
+
+  plt.hist(Payment_method, bins=50, color='orange', edgecolor='black')
+  plt.title('Payment methods used')
+  plt.xlabel('Payment method')
+  plt.ylabel('Count')
+  plt.show()
+PaymentMethod_histogram()
 
 st.markdown("""
 ### `Jaso`            
