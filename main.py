@@ -76,9 +76,27 @@ st.markdown("""
 #### Graphs and Observations(Scatter plot and Box plot)
             """)
 st.markdown("#### `Scatter plot`")
-# Code here
+sns.set(style="whitegrid")
+plt.figure(figsize=(10,6))
+sns.scatterplot(x='Quantity', y='Total Price', hue='Product Type', data=df, palette='viridis')
+plt.title('Scatter Plot of Quantity vs Total Price by Product Type')
+plt.xlabel('Quantity')
+plt.ylabel('Total Price')
+plt.show()
 st.markdown("#### `Box plot`")
-# Code here
+data = {
+    'Age': np.random.randint(18, 60, size=100),
+    'Total Price': np.random.randint(100, 1000, size=100),
+    'Quantity': np.random.randint(1, 10, size=100),
+    'Rating': np.random.randint(1, 6, size=100)
+}
+df = pd.DataFrame(data)
+plt.figure(figsize=(10, 8))
+sns.boxplot(x='Rating', y='Total Price', data=df)
+plt.title('Box Plot: Total Price by Rating', fontsize=16)
+plt.xlabel('Rating')
+plt.ylabel('Total Price')
+plt.show()
 
 st.markdown("""
 ### `Hojilla`  
