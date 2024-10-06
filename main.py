@@ -141,9 +141,65 @@ st.markdown("""
 #### Graphs and Observations(Tree map and Area Chart)  
             """)
 st.markdown("#### `Tree map`")
-# Code here
+
+df['has_internal_links'] = df['has_internal_links'].astype(bool)
+df['starts_with_ip'] = df['starts_with_ip'].astype(bool)
+df['domain_has_digits'] = df['domain_has_digits'].astype(bool)
+
+data_counts = {
+    'Has Internal Links': df['has_internal_links'].value_counts(),
+    'Starts With IP': df['starts_with_ip'].value_counts(),
+    'Domain Has Digits': df['domain_has_digits'].value_counts()
+}
+
+labels = []
+sizes = []
+
+for key, value in data_counts.items():
+    true_count = value.get(True, 0)  
+    false_count = value.get(False, 0) 
+
+    if true_count > 0:
+        labels.append(f"{key} - True")
+        sizes.append(true_count)
+    if false_count > 0:
+        labels.append(f"{key} - False")
+        sizes.append(false_count)
+if not sizes:
+    print("No data to plot.")
+else:
+    colors = sns.color_palette("pastel", len(sizes))
+
+    plt.figure(figsize=(12, 8))  
+    squarify.plot(sizes=sizes, label=labels, color=colors, alpha=0.7)
+
+    plt.title('Tree Map of Boolean Features', fontsize=16)
+    plt.axis('off')  
+
+    plt.show()
+
+
 st.markdown("#### `Area chart`")
-# Code here
+df['url_entropy'] = pd.to_numeric(df['url_entropy'], errors='coerce')
+
+df_cleaned = df.dropna(subset=['url_entropy'])
+
+url_entropy_data = df_cleaned['url_entropy']
+
+bins = pd.cut(url_entropy_data, bins=20)
+url_entropy_distribution = url_entropy_data.groupby(bins).size()
+plt.figure(figsize=(10, 6)) 
+colors = sns.color_palette("pastel")
+plt.fill_between(url_entropy_distribution.index.astype(str), url_entropy_distribution, color=colors[1], alpha=0.6)
+plt.title('URL Entropy Distribution', fontsize=16)
+plt.xlabel('URL Entropy Bins', fontsize=12)
+plt.ylabel('Number of URLs', fontsize=12)
+
+
+plt.xticks(rotation=45)  
+plt.tight_layout()  
+plt.show()
+
 
 st.markdown("""
 ### `Molina`
