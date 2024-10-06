@@ -218,8 +218,8 @@ st.markdown("""
 Insights from Data Visualization and Analysis per member:
 
 1. ### `Dizon`
-*   
-*   
+*  The scatter plot visualizes the relationship between Quantity and Total Price across different Product Types, revealing trends and clusters, aiding in understanding pricing dynamics based on quantity sold.
+*  The box plot reveals that higher ratings generally correspond to varied total prices, indicating a wider price range for lower-rated products and more consistency in prices for higher-rated items.*   
 2. ### `Hojilla`
 *   
 *   
