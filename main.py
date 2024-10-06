@@ -174,8 +174,26 @@ st.markdown("""
             """)
 st.markdown("#### `Heatmap`")
 # Code here
+corr_matrix = df.corr()
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Heatmap', fontsize=16)
+plt.show()
+
 st.markdown("#### `Bubble chart`")
-# Code here s
+# Code here 
+plt.figure(figsize=(10, 8))
+sns.scatterplot(x='Age', y='Total Price', 
+                size='Quantity', 
+                sizes=(40, 400), 
+                hue='Gender',     
+                data=df, 
+                alpha=0.6,        
+                palette="viridis")  
+plt.title('Bubble Chart: Age vs Total Price with Quantity as Bubble Size', fontsize=16)
+plt.xlabel('Age')
+plt.ylabel('Total Price')
+plt.show()
 
 st.markdown("""
 ### `Conclusion`
@@ -194,8 +212,8 @@ Insights from Data Visualization and Analysis per member:
 *   Most of the transactions made are by smartphones contributing to **29.9%** of the data set. Other product types such as Smartwatch, Laptop, Tablet, Headphones contribute **20.5%**, **19.9%**, **19.7%**, and **10.1%** respectively  
 *   **Smartphones** has the highest number of completed and cancelled transactions while **Headphones** has the lowest number of transactions in product types
 5. ### `Nanwani`
-*   
-*              
+*   The heatmap reveals strong correlations between certain variables, such as "Total Price" and "Quantity," while highlighting weak or no relationships between others, offering insights for targeted data-driven decisions.
+*   The bubble chart shows that higher quantities are generally purchased by middle-aged customers, with total prices varying widely across ages.           
        """)
 
 
