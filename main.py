@@ -72,7 +72,7 @@ Description of each column names according to the dataset provider:
 """)
 
 st.markdown(""" 
-### `Dizon`  
+### `Dizon`
 #### Graphs and Observations(Scatter plot and Box plot)
             """)
 st.markdown("#### `Scatter plot`")
