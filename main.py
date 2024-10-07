@@ -34,11 +34,7 @@ st.code(""" df = pd.read_csv("datasets/Electronic_sales_Sep2023-Sep2024.csv")"""
 df = pd.read_csv("datasets/Electronic_sales_Sep2023-Sep2024.csv")
 st.code("df.info()")
 
-buffer = StringIO()
-df.info(buf=buffer)
-df_info_as_string = buffer.getvalue()
-
-st.text(df_info_as_string)
+st.write(df.info())
 
 st.code("df.isna().sum()")
 
