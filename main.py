@@ -230,9 +230,8 @@ Insights from Data Visualization and Analysis per member:
 *  The line chart shows the line fluctuating on the reviews given per age, based on the data from 20 transactions, though it mostly fluctuates between 2 stars, 3 stars, and 5 stars. 
 *  According to the data shown by the histogram, credit card is the most used mode of payment, towering over the other payment methods. 
 3. ### `Jaso`
-*  Indication permits that the data is skewed to the right, which suggests a higher concentration of higher entropy values in the distribution. This implies that most URLs have a higher level of complexity or randomness.
-*  The analysis of the Boolean features within the dataset reveals that three key figures predominantly represent the primary features.
-4. ### `Molina`
+* Regardless of customer status or gender, smartphone are the majority puchases of clients followed by the differences of sales between smartwatches, laptops, and tablets. 
+* Emphasizing that the majority of the customer population belongs to the non-Loyalty members which in the long run may garner difficulties in the customer retention, shown in the downward trend in the number of actual members. 4. ### `Molina`
 *   Most of the transactions made are by smartphones contributing to **29.9%** of the data set. Other product types such as Smartwatch, Laptop, Tablet, Headphones contribute **20.5%**, **19.9%**, **19.7%**, and **10.1%** respectively  
 *   **Smartphones** has the highest number of completed and cancelled transactions while **Headphones** has the lowest number of transactions in product types
 5. ### `Nanwani`
