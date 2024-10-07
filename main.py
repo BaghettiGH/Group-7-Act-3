@@ -161,7 +161,8 @@ def treemap(values, categories, title='Treemap Example', figsize=(14, 10), alpha
     
     plt.title(title, fontsize=20)
     plt.axis('off')  
-    plt.show()
+    st.pyplot(plt)
+    plt.clf()
 
 df_cleaned = df.dropna(subset=['Gender', 'Loyalty Member', 'Product Type'])
 
