@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import altair as alt
 import squarify
+import plotly
 from io import StringIO""")
 
 
@@ -26,6 +27,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import altair as alt
 import squarify
+import plotly.express as px
 from io import StringIO
 
 st.markdown(""" ### `Initializing and describing the data set`  """)

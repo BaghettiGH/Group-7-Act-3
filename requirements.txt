@@ -5,3 +5,4 @@ seaborn
 altair
 squarify
 streamlit
+plotly
