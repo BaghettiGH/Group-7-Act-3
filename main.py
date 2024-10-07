@@ -252,24 +252,28 @@ plt.title('Correlation Heatmap', fontsize=16)
 plt.show()
 st.pyplot(plt)
 plt.clf()
+st.markdown(""" The heatmap reveals strong correlations between certain variables, such as "Total Price" and "Quantity," while highlighting weak or no relationships between others, offering insights for targeted data-driven decisions.""")
 
 st.markdown("#### `Bubble chart`")
 # Code here 
-plt.figure(figsize=(10, 8))
-sns.scatterplot(x='Age', y='Total Price', 
-                size='Quantity', 
-                sizes=(40, 400), 
-                hue='Gender',     
-                data=df, 
-                alpha=0.6,        
-                palette="viridis")  
-plt.title('Bubble Chart: Age vs Total Price with Quantity as Bubble Size', fontsize=16)
-plt.xlabel('Age')
-plt.ylabel('Total Price')
+plt.figure(figsize=(10,6))
+bubble = plt.scatter(
+    df['Total Price'],    
+    df['Quantity'],        
+    s=df['Rating']*100,   
+    alpha=0.5,            
+    c=df['Rating'],       
+    cmap='viridis'       
+)
+plt.title('Total Price vs Quantity (Bubble Size by Rating)', fontsize=15)
+plt.xlabel('Total Price', fontsize=12)
+plt.ylabel('Quantity', fontsize=12)
+plt.colorbar(label='Rating')  # Adds a color bar
 plt.show()
 st.pyplot(plt)
 plt.clf()
-st.markdown("""
+st.markdown(""" Higher-rated products tend to have larger bubbles, indicating a positive correlation between rating and size, with diverse price and quantity values across all ratings in the dataset.
+
 ### `Conclusion`
 Insights from Data Visualization and Analysis per member:
 
@@ -286,8 +290,5 @@ Insights from Data Visualization and Analysis per member:
 *   **Smartphones** has the highest number of completed and cancelled transactions while **Headphones** has the lowest number of transactions in product types
 5. ### `Nanwani`
 *   The heatmap reveals strong correlations between certain variables, such as "Total Price" and "Quantity," while highlighting weak or no relationships between others, offering insights for targeted data-driven decisions.
-*   The bubble chart shows that higher quantities are generally purchased by middle-aged customers, with total prices varying widely across ages.           
-       """)
-
-
-
+*   Higher-rated products tend to have larger bubbles, indicating a positive correlation between rating and size, with diverse price and quantity values across all ratings in the dataset.         
+     """)
