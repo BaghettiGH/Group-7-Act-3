@@ -144,24 +144,35 @@ st.markdown("""
             """)
 st.markdown("#### `Tree map`")
 
+def treemap(values, categories, title='Treemap Example', figsize=(14, 10), alpha=0.7):
+
+    plt.figure(figsize=figsize)
+    
+    unique_categories = np.unique(categories)
+    colors = plt.cm.get_cmap('tab10', len(unique_categories)) 
+
+    category_colors = {cat: colors(i) for i, cat in enumerate(unique_categories)}
+    color_values = [category_colors[cat] for cat in categories]
+
+    squarify.plot(sizes=values, 
+                  label=categories, 
+                  color=color_values, 
+                  alpha=alpha)
+    
+    plt.title(title, fontsize=20)
+    plt.axis('off')  
+    plt.show()
+
 df_cleaned = df.dropna(subset=['Gender', 'Loyalty Member', 'Product Type'])
 
-fig_tree = px.treemap(
-    df_cleaned,
-    path=['Gender', 'Loyalty Member', 'Product Type'],
-    values='Total Price',
-    title='Customer Segmentation: Gender, Loyalty Member, and Product Type',
-    color='Total Price',
-    color_continuous_scale=px.colors.sequential.Pinkyl, 
-    hover_data={'Total Price': True}
-)
+grouped_data = df_cleaned.groupby(['Gender', 'Loyalty Member', 'Product Type'])['Total Price'].sum().reset_index()
 
-fig_tree.update_layout(
-    paper_bgcolor='white',  
-    plot_bgcolor='white'    
-)
+grouped_data['Label'] = grouped_data['Gender'] + ' - ' + grouped_data['Loyalty Member'] + ' - ' + grouped_data['Product Type']
 
-fig_tree.show()
+treemap(values=grouped_data['Total Price'], 
+        categories=grouped_data['Label'], 
+        title='Customer Segmentation: Gender, Loyalty Member, and Product Type')
+
 st.markdown("""
 The customer segmentation of the overall population is divided into three distinct categories: Gender, Membership Status, and Product Type Purchased. The majority of customers are non-members, with smartphones being the most frequently purchased items, followed by smartwatches and laptops. Similarly, for members, the top purchases in order are smartphones, smartwatches, and tablets. When examining the female segment of the customer base, female non-members have purchasing patterns similar to their male counterparts, with smartphones ranking first, followed by smartwatches and tablets. In contrast, female members also prioritize smartphones and smartwatches, but the difference lies in their third most purchased product, which is laptops.
 """)
