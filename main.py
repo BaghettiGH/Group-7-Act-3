@@ -92,7 +92,7 @@ plt.ylabel('Total Price')
 plt.show()
 st.pyplot(plt) 
 plt.clf()
-st.markdown("""
+st.markdown(""" The box plot reveals that higher ratings generally correspond to varied total prices, indicating a wider price range for lower-rated products and more consistency in prices for higher-rated items.)
 ### `Hojilla`  
 #### Graphs and Observations(Line chart and Histogram)
          """)
