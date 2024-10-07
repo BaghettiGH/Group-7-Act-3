@@ -80,7 +80,7 @@ plt.xlabel('Quantity')
 plt.ylabel('Total Price')
 st.pyplot(plt)
 plt.clf()
-st.markdown(""" The scatter plot visualizes the relationship between Quantity and Total Price across different Product Types, revealing trends and clusters, aiding in understanding pricing dynamics based on quantity sold.)
+st.markdown(""" The scatter plot visualizes the relationship between Quantity and Total Price across different Product Types, revealing trends and clusters, aiding in understanding pricing dynamics based on quantity sold.""")
 st.markdown("#### `Box plot`")
 
 plt.figure(figsize=(10, 8))
@@ -91,7 +91,7 @@ plt.ylabel('Total Price')
 plt.show()
 st.pyplot(plt) 
 plt.clf()
-st.markdown("""
+st.markdown(""" The box plot reveals that higher ratings generally correspond to varied total prices, indicating a wider price range for lower-rated products and more consistency in prices for higher-rated items.)
 ### `Hojilla`  
 #### Graphs and Observations(Line chart and Histogram)
          """)
@@ -290,5 +290,5 @@ Insights from Data Visualization and Analysis per member:
 *   **Smartphones** has the highest number of completed and cancelled transactions while **Headphones** has the lowest number of transactions in product types
 5. ### `Nanwani`
 *   The heatmap reveals strong correlations between certain variables, such as "Total Price" and "Quantity," while highlighting weak or no relationships between others, offering insights for targeted data-driven decisions.
-*   Higher-rated products tend to have larger bubbles, indicating a positive correlation between rating and size, with diverse price and quantity values across all ratings in the dataset.         
-     """)
+*   Higher-rated products tend to have larger bubbles, indicating a positive correlation between rating and size, with diverse price and quantity values across all ratings in the dataset.     
+            """)    
