@@ -284,8 +284,8 @@ Insights from Data Visualization and Analysis per member:
 *   **Smartphones** has the highest number of completed and cancelled transactions while **Headphones** has the lowest number of transactions in product types
 5. ### `Nanwani`
 *   The heatmap reveals strong correlations between certain variables, such as "Total Price" and "Quantity," while highlighting weak or no relationships between others, offering insights for targeted data-driven decisions.
-*   The bubble chart shows that higher quantities are generally purchased by middle-aged customers, with total prices varying widely across ages.           
-       """)
+*   Higher-rated products tend to have larger bubbles, indicating a positive correlation between rating and size, with diverse price and quantity values across all ratings in the dataset.         
+     
 
 
 
