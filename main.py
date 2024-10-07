@@ -81,6 +81,7 @@ plt.ylabel('Total Price')
 plt.show()
 st.pyplot(plt)
 plt.clf()
+st.markdown(""" The scatter plot visualizes the relationship between Quantity and Total Price across different Product Types, revealing trends and clusters, aiding in understanding pricing dynamics based on quantity sold.)
 st.markdown("#### `Box plot`")
 
 plt.figure(figsize=(10, 8))
