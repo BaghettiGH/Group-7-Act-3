@@ -105,24 +105,28 @@ st.markdown("""
 st.markdown("#### `Line chart`")
 # Code here
 st.write("Ratio of product type bought per gender")
-df[['Gender', 'Product Type']].head(20)
-st.write("Gender and product type ratio line chart")
-def Gender_ProductType_Ratio ():
- gender_stats = df['Gender'].head(20)
- productType_stats = df['Product Type'].head(20)
+df[['Age', 'Rating']].head(20)
+st.write("Age to rating given ratio line chart")
+def Age_Rating_Ratio():
+    Age_stats = df['Age'].head(20)
+    Rating_stats = df['Rating'].head(20)
+    
+    sorted_data = df[['Age', 'Rating']].head(20).sort_values(by='Age')
+    Age_stats_sorted = sorted_data['Age']
+    Rating_stats_sorted = sorted_data['Rating']
+    
+    plt.plot(Age_stats_sorted, Rating_stats_sorted, marker='o', linestyle='-', color='b')
+    plt.title('Ratings given per age')
+    plt.xlabel('Age')
+    plt.ylabel('Rating')
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.show()
 
- plt.plot(productType_stats, gender_stats, marker = 'o', linestyle = '-', color = 'b')
- plt.title('Gender to Product type bought ratio (20 Transactions)')
- plt.xlabel('Product Type')
- plt.ylabel('Gender')
- plt.xticks(rotation=45)
- plt.grid(True)
- plt.show()
+Age_Rating_Ratio()
 
-Gender_ProductType_Ratio ()
 st.markdown("#### `Histogram`")
 # Code here
-
 st.write("Payment methods count")
 df['Payment Method']
 st.write("Payment method histogram")
@@ -277,8 +281,8 @@ Insights from Data Visualization and Analysis per member:
 *  The scatter plot visualizes the relationship between Quantity and Total Price across different Product Types, revealing trends and clusters, aiding in understanding pricing dynamics based on quantity sold.
 *  The box plot reveals that higher ratings generally correspond to varied total prices, indicating a wider price range for lower-rated products and more consistency in prices for higher-rated items.*   
 2. ### `Hojilla`
-*   
-*   
+*  The line chart shows the line fluctuating on the reviews given per age, based on the data from 20 transactions, though it mostly fluctuates between 2 stars, 3 stars, and 5 stars. 
+*  According to the data shown by the histogram, credit card is the most used mode of payment, towering over the other payment methods. 
 3. ### `Jaso`
 *  Indication permits that the data is skewed to the right, which suggests a higher concentration of higher entropy values in the distribution. This implies that most URLs have a higher level of complexity or randomness.
 *  The analysis of the Boolean features within the dataset reveals that three key figures predominantly represent the primary features.
