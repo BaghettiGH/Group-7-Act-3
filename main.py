@@ -17,7 +17,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import altair as alt
 import squarify
-from mpl_toolkits.mplot3d import Axes3D
 from io import StringIO""")
 
 
@@ -27,7 +26,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import altair as alt
 import squarify
-from mpl_toolkits.mplot3d import Axes3D
 from io import StringIO
 
 st.markdown(""" ### `Initializing and describing the data set`  """)
