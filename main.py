@@ -142,10 +142,56 @@ st.markdown("""
             """)
 st.markdown("#### `Tree map`")
 
+df_cleaned = df.dropna(subset=['Gender', 'Loyalty Member', 'Product Type'])
 
+fig_tree = px.treemap(
+    df_cleaned,
+    path=['Gender', 'Loyalty Member', 'Product Type'],
+    values='Total Price',
+    title='Customer Segmentation: Gender, Loyalty Member, and Product Type',
+    color='Total Price',
+    color_continuous_scale=px.colors.sequential.Pinkyl, 
+    hover_data={'Total Price': True}
+)
+
+fig_tree.update_layout(
+    paper_bgcolor='white',  
+    plot_bgcolor='white'    
+)
+
+fig_tree.show()
+
+#The customer segmentation of the overall population is divided into three distinct categories: Gender, Membership Status, and Product Type Purchased. The majority of customers are non-members, with smartphones being the most frequently purchased items, followed by smartwatches and laptops. Similarly, for members, the top purchases in order are smartphones, smartwatches, and tablets. When examining the female segment of the customer base, female non-members have purchasing patterns similar to their male counterparts, with smartphones ranking first, followed by smartwatches and tablets. In contrast, female members also prioritize smartphones and smartwatches, but the difference lies in their third most purchased product, which is laptops.
 
 st.markdown("#### `Area chart`")
 
+df['Purchase Date'] = pd.to_datetime(df['Purchase Date'])
+
+df['Count'] = 1
+
+loyalty_over_time = df.groupby([df['Purchase Date'].dt.to_period('M'), 'Loyalty Member'])['Count'].sum().unstack().fillna(0)
+
+loyalty_over_time = loyalty_over_time.reset_index()
+loyalty_over_time['Purchase Date'] = loyalty_over_time['Purchase Date'].dt.to_timestamp()
+
+plt.figure(figsize=(12, 6))
+plt.stackplot(
+    loyalty_over_time['Purchase Date'],
+    loyalty_over_time['Yes'],
+    loyalty_over_time['No'],
+    labels=['Loyalty Members', 'Non-Loyalty Members'],
+    colors=['skyblue', 'lightgreen'],
+    alpha=0.7
+)
+
+plt.title('Customer Loyalty Membership Over Time')
+plt.xlabel('Purchase Date')
+plt.ylabel('Number of Customers')
+plt.legend(loc='upper left')
+plt.grid(True)
+plt.show()
+
+#Shown in the graph above that among in the overall population of the customers, a far majority of them are non-members, meaning there is an increased possibility that customer retention may be difficult in the forecast, evident by the similar decline of Loyalty members. 
 
 st.markdown("""
 ### `Molina`
