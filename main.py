@@ -78,7 +78,6 @@ sns.scatterplot(x='Quantity', y='Total Price', hue='Product Type', data=df, pale
 plt.title('Scatter Plot of Quantity vs Total Price by Product Type')
 plt.xlabel('Quantity')
 plt.ylabel('Total Price')
-plt.show()
 st.pyplot(plt)
 plt.clf()
 st.markdown("#### `Box plot`")
