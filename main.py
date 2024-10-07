@@ -118,8 +118,9 @@ def Age_Rating_Ratio():
     plt.show()
     st.pyplot(plt)
     plt.clf()
+    
 Age_Rating_Ratio()
-
+st.markdown(""" The line chart shows the line fluctuating on the reviews given per age, based on the data from 20 transactions, though it mostly fluctuates between 2 stars, 3 stars, and 5 stars. """)
 st.markdown("#### `Histogram`")
 # Code here
 st.write("Payment methods count")
@@ -138,6 +139,7 @@ def PaymentMethod_histogram():
   plt.clf()
 PaymentMethod_histogram()
 
+st.markdown("""According to the data shown by the histogram, credit card is the most used mode of payment, towering over the other payment methods.""")
 st.markdown("""
 ### `Jaso`            
 #### Graphs and Observations(Tree map and Area Chart)  
