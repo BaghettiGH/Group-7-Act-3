@@ -83,21 +83,18 @@ plt.title('Scatter Plot of Quantity vs Total Price by Product Type')
 plt.xlabel('Quantity')
 plt.ylabel('Total Price')
 plt.show()
+st.pyplot(plt)
+plt.clf()
 st.markdown("#### `Box plot`")
-data = {
-    'Age': np.random.randint(18, 60, size=100),
-    'Total Price': np.random.randint(100, 1000, size=100),
-    'Quantity': np.random.randint(1, 10, size=100),
-    'Rating': np.random.randint(1, 6, size=100)
-}
-df = pd.DataFrame(data)
+
 plt.figure(figsize=(10, 8))
 sns.boxplot(x='Rating', y='Total Price', data=df)
 plt.title('Box Plot: Total Price by Rating', fontsize=16)
 plt.xlabel('Rating')
 plt.ylabel('Total Price')
 plt.show()
-
+st.pyplot(plt) 
+plt.clf()
 st.markdown("""
 ### `Hojilla`  
 #### Graphs and Observations(Line chart and Histogram)
@@ -105,7 +102,8 @@ st.markdown("""
 st.markdown("#### `Line chart`")
 # Code here
 st.write("Ratio of product type bought per gender")
-df[['Age', 'Rating']].head(20)
+age_rating= df[['Age', 'Rating']].head(20)
+st.write(age_rating)
 st.write("Age to rating given ratio line chart")
 def Age_Rating_Ratio():
     Age_stats = df['Age'].head(20)
@@ -122,13 +120,15 @@ def Age_Rating_Ratio():
     plt.xticks(rotation=45)
     plt.grid(True)
     plt.show()
-
+    st.pyplot(plt)
+    plt.clf()
 Age_Rating_Ratio()
 
 st.markdown("#### `Histogram`")
 # Code here
 st.write("Payment methods count")
-df['Payment Method']
+count_pay_method=df['Payment Method'].value_counts()
+st.write(count_pay_method)
 st.write("Payment method histogram")
 def PaymentMethod_histogram():
   Payment_method = df['Payment Method']
@@ -138,6 +138,8 @@ def PaymentMethod_histogram():
   plt.xlabel('Payment method')
   plt.ylabel('Count')
   plt.show()
+  st.pyplot(plt)
+  plt.clf()
 PaymentMethod_histogram()
 
 st.markdown("""
@@ -146,64 +148,66 @@ st.markdown("""
             """)
 st.markdown("#### `Tree map`")
 
-df['has_internal_links'] = df['has_internal_links'].astype(bool)
-df['starts_with_ip'] = df['starts_with_ip'].astype(bool)
-df['domain_has_digits'] = df['domain_has_digits'].astype(bool)
+# df['has_internal_links'] = df['has_internal_links'].astype(bool)
+# df['starts_with_ip'] = df['starts_with_ip'].astype(bool)
+# df['domain_has_digits'] = df['domain_has_digits'].astype(bool)
 
-data_counts = {
-    'Has Internal Links': df['has_internal_links'].value_counts(),
-    'Starts With IP': df['starts_with_ip'].value_counts(),
-    'Domain Has Digits': df['domain_has_digits'].value_counts()
-}
+# data_counts = {
+#     'Has Internal Links': df['has_internal_links'].value_counts(),
+#     'Starts With IP': df['starts_with_ip'].value_counts(),
+#     'Domain Has Digits': df['domain_has_digits'].value_counts()
+# }
 
-labels = []
-sizes = []
+# labels = []
+# sizes = []
 
-for key, value in data_counts.items():
-    true_count = value.get(True, 0)  
-    false_count = value.get(False, 0) 
+# for key, value in data_counts.items():
+#     true_count = value.get(True, 0)  
+#     false_count = value.get(False, 0) 
 
-    if true_count > 0:
-        labels.append(f"{key} - True")
-        sizes.append(true_count)
-    if false_count > 0:
-        labels.append(f"{key} - False")
-        sizes.append(false_count)
-if not sizes:
-    print("No data to plot.")
-else:
-    colors = sns.color_palette("pastel", len(sizes))
+#     if true_count > 0:
+#         labels.append(f"{key} - True")
+#         sizes.append(true_count)
+#     if false_count > 0:
+#         labels.append(f"{key} - False")
+#         sizes.append(false_count)
+# if not sizes:
+#     print("No data to plot.")
+# else:
+#     colors = sns.color_palette("pastel", len(sizes))
 
-    plt.figure(figsize=(12, 8))  
-    squarify.plot(sizes=sizes, label=labels, color=colors, alpha=0.7)
+#     plt.figure(figsize=(12, 8))  
+#     squarify.plot(sizes=sizes, label=labels, color=colors, alpha=0.7)
 
-    plt.title('Tree Map of Boolean Features', fontsize=16)
-    plt.axis('off')  
-
-    plt.show()
+#     plt.title('Tree Map of Boolean Features', fontsize=16)
+#     plt.axis('off')  
+#     plt.show()
+#     st.pyplot(plt)
+#     plt.clf()
 
 
 st.markdown("#### `Area chart`")
-df['url_entropy'] = pd.to_numeric(df['url_entropy'], errors='coerce')
+# df['url_entropy'] = pd.to_numeric(df['url_entropy'], errors='coerce')
 
-df_cleaned = df.dropna(subset=['url_entropy'])
+# df_cleaned = df.dropna(subset=['url_entropy'])
 
-url_entropy_data = df_cleaned['url_entropy']
+# url_entropy_data = df_cleaned['url_entropy']
 
-bins = pd.cut(url_entropy_data, bins=20)
-url_entropy_distribution = url_entropy_data.groupby(bins).size()
-plt.figure(figsize=(10, 6)) 
-colors = sns.color_palette("pastel")
-plt.fill_between(url_entropy_distribution.index.astype(str), url_entropy_distribution, color=colors[1], alpha=0.6)
-plt.title('URL Entropy Distribution', fontsize=16)
-plt.xlabel('URL Entropy Bins', fontsize=12)
-plt.ylabel('Number of URLs', fontsize=12)
+# bins = pd.cut(url_entropy_data, bins=20)
+# url_entropy_distribution = url_entropy_data.groupby(bins).size()
+# plt.figure(figsize=(10, 6)) 
+# colors = sns.color_palette("pastel")
+# plt.fill_between(url_entropy_distribution.index.astype(str), url_entropy_distribution, color=colors[1], alpha=0.6)
+# plt.title('URL Entropy Distribution', fontsize=16)
+# plt.xlabel('URL Entropy Bins', fontsize=12)
+# plt.ylabel('Number of URLs', fontsize=12)
 
 
-plt.xticks(rotation=45)  
-plt.tight_layout()  
-plt.show()
-
+# plt.xticks(rotation=45)  
+# plt.tight_layout()  
+# plt.show()
+# st.pyplot(plt)
+# plt.clf()
 
 st.markdown("""
 ### `Molina`
@@ -257,6 +261,8 @@ plt.figure(figsize=(10, 8))
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
 plt.title('Correlation Heatmap', fontsize=16)
 plt.show()
+st.pyplot(plt)
+plt.clf()
 
 st.markdown("#### `Bubble chart`")
 # Code here 
@@ -272,7 +278,8 @@ plt.title('Bubble Chart: Age vs Total Price with Quantity as Bubble Size', fonts
 plt.xlabel('Age')
 plt.ylabel('Total Price')
 plt.show()
-
+st.pyplot(plt)
+plt.clf()
 st.markdown("""
 ### `Conclusion`
 Insights from Data Visualization and Analysis per member:
