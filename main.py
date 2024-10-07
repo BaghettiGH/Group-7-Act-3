@@ -162,9 +162,9 @@ fig_tree.update_layout(
 )
 
 fig_tree.show()
-
-#The customer segmentation of the overall population is divided into three distinct categories: Gender, Membership Status, and Product Type Purchased. The majority of customers are non-members, with smartphones being the most frequently purchased items, followed by smartwatches and laptops. Similarly, for members, the top purchases in order are smartphones, smartwatches, and tablets. When examining the female segment of the customer base, female non-members have purchasing patterns similar to their male counterparts, with smartphones ranking first, followed by smartwatches and tablets. In contrast, female members also prioritize smartphones and smartwatches, but the difference lies in their third most purchased product, which is laptops.
-
+st.markdown("""
+The customer segmentation of the overall population is divided into three distinct categories: Gender, Membership Status, and Product Type Purchased. The majority of customers are non-members, with smartphones being the most frequently purchased items, followed by smartwatches and laptops. Similarly, for members, the top purchases in order are smartphones, smartwatches, and tablets. When examining the female segment of the customer base, female non-members have purchasing patterns similar to their male counterparts, with smartphones ranking first, followed by smartwatches and tablets. In contrast, female members also prioritize smartphones and smartwatches, but the difference lies in their third most purchased product, which is laptops.
+""")
 st.markdown("#### `Area chart`")
 
 df['Purchase Date'] = pd.to_datetime(df['Purchase Date'])
@@ -192,9 +192,11 @@ plt.ylabel('Number of Customers')
 plt.legend(loc='upper left')
 plt.grid(True)
 plt.show()
-
-#Shown in the graph above that among in the overall population of the customers, a far majority of them are non-members, meaning there is an increased possibility that customer retention may be difficult in the forecast, evident by the similar decline of Loyalty members. 
-
+st.pyplot(plt)
+plt.clf()
+st.markdown("""
+Shown in the graph above that among in the overall population of the customers, a far majority of them are non-members, meaning there is an increased possibility that customer retention may be difficult in the forecast, evident by the similar decline of Loyalty members. 
+""")
 st.markdown("""
 ### `Molina`
 #### Graphs and Observations(Pie chart and Bar chart)
