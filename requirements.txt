@@ -4,7 +4,6 @@ matplotlib
 seaborn
 altair
 squarify
-Axes3D
 StringIO
 Streamlit
 python-3.10
